@@ -1,67 +1,633 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CAP Garland, LLC</title>
+  <title>E.Z. Classic Car Restoration Center Ltd – Classic Car Restoration</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: Arial, sans-serif;
+    :root {
+      --bg: #020617;
+      --card: #020617;
+      --accent: #f97316;
+      --accent-strong: #fb923c;
+      --accent-soft: rgba(249, 115, 22, 0.14);
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --border: #1e293b;
+      --shadow-soft: 0 22px 45px rgba(15, 23, 42, 0.9);
+    }
+
+    * {
       margin: 0;
       padding: 0;
-      background-color: #f0f0f0;
-      color: #333;
+      box-sizing: border-box;
     }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(249, 115, 22, 0.22), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(15, 23, 42, 1), #020617 55%);
+      color: var(--text-main);
+      min-height: 100vh;
+    }
+
+    .page {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 24px 16px 42px;
+    }
+
     header {
-      background-color: #003366;
-      color: white;
-      padding: 30px 20px;
-      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 28px;
     }
-    section {
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 0 20px;
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
     }
-    h1, h2 {
-      color: #003366;
+
+    .brand-logo {
+      width: 48px;
+      height: 48px;
+      border-radius: 999px;
+      background:
+        conic-gradient(from 210deg, #f97316, #facc15, #f97316, #fdba74);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #111827;
+      font-weight: 800;
+      font-size: 24px;
+      box-shadow: 0 18px 40px rgba(248, 148, 38, 0.9);
     }
-    .contact {
-      background: #fff;
-      padding: 20px;
-      border-left: 5px solid #003366;
-      margin-top: 30px;
+
+    .brand-main {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
     }
+
+    .brand-sub {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .domain-pill {
+      font-size: 12px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--text-muted);
+    }
+
+    .domain-pill span:first-child {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 5px rgba(34, 197, 94, 0.25);
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.1fr);
+      gap: 26px;
+    }
+
+    @media (max-width: 900px) {
+      main {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    /* LEFT – HERO */
+    .hero {
+      background:
+        radial-gradient(circle at top left, rgba(248, 148, 38, 0.14), transparent 60%),
+        radial-gradient(circle at bottom right, rgba(15, 23, 42, 0.9), transparent 65%),
+        #020617;
+      border-radius: 28px;
+      padding: 24px 22px 20px;
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 12px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.94);
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .hero-badge span:last-child {
+      color: #fed7aa;
+    }
+
+    .hero-title {
+      font-size: clamp(27px, 3.8vw, 34px);
+      line-height: 1.12;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .hero-title span {
+      display: inline-block;
+      background: linear-gradient(135deg, #fed7aa, #fb923c);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 13px;
+      color: var(--text-muted);
+      max-width: 440px;
+      margin-bottom: 18px;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .hero-tag {
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.96);
+      border: 1px solid rgba(75, 85, 99, 0.98);
+      color: var(--text-muted);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .btn-main,
+    .btn-ghost {
+      border-radius: 999px;
+      font-size: 13px;
+      padding: 10px 18px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: transform 0.14s ease, box-shadow 0.14s ease, background 0.14s ease, border-color 0.14s ease;
+    }
+
+    .btn-main {
+      background: linear-gradient(135deg, #f97316, #fb923c);
+      color: #111827;
+      font-weight: 600;
+      box-shadow: 0 16px 34px rgba(248, 148, 38, 0.9);
+    }
+
+    .btn-main:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 20px 46px rgba(248, 148, 38, 0.98);
+    }
+
+    .btn-ghost {
+      background: rgba(15, 23, 42, 0.94);
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      color: var(--text-muted);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(15, 23, 42, 1);
+      border-color: #e5e7eb;
+      transform: translateY(-1px);
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    .hero-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hero-meta span i {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: rgba(148, 163, 184, 0.7);
+    }
+
+    .hero-meta strong {
+      color: #e5e7eb;
+      font-weight: 500;
+    }
+
+    .info-card {
+      margin-top: 12px;
+      background: rgba(15, 23, 42, 0.97);
+      border-radius: 20px;
+      padding: 14px 14px 10px;
+      border: 1px solid var(--border);
+      font-size: 12px;
+      display: grid;
+      gap: 6px;
+    }
+
+    .info-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-muted);
+    }
+
+    .info-line {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .info-link {
+      color: var(--text-main);
+      text-decoration: none;
+    }
+
+    .info-link:hover {
+      text-decoration: underline;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      border: 1px solid rgba(248, 148, 38, 0.85);
+      color: #fed7aa;
+      font-size: 11px;
+      margin-top: 4px;
+    }
+
+    .chip-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    /* RIGHT – GALLERY */
+    .gallery-card {
+      background: rgba(15, 23, 42, 0.98);
+      border-radius: 24px;
+      padding: 18px 18px 14px;
+      border: 1px solid rgba(31, 41, 55, 0.95);
+      box-shadow: 0 20px 46px rgba(15, 23, 42, 0.92);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .gallery-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 13px;
+      margin-bottom: 4px;
+    }
+
+    .gallery-header span:last-child {
+      font-size: 10px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(75, 85, 99, 0.95);
+      color: var(--text-muted);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.9fr;
+      gap: 8px;
+    }
+
+    @media (max-width: 600px) {
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .gallery-main {
+      position: relative;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(248, 148, 38, 0.8);
+      background: #020617;
+    }
+
+    .gallery-main img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transform: scale(1.02);
+    }
+
+    .gallery-main-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(15, 23, 42, 0.95), transparent 55%);
+      display: flex;
+      align-items: flex-end;
+      padding: 10px 12px;
+    }
+
+    .gallery-main-text {
+      font-size: 12px;
+    }
+
+    .gallery-main-text span {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #fed7aa;
+    }
+
+    .gallery-main-text strong {
+      display: block;
+      margin-top: 3px;
+      font-weight: 600;
+    }
+
+    .gallery-main-sub {
+      font-size: 10px;
+      color: var(--text-muted);
+      margin-top: 3px;
+    }
+
+    .gallery-side {
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .gallery-item {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(31, 41, 55, 0.95);
+      background: #020617;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .gallery-item-caption {
+      position: absolute;
+      left: 8px;
+      right: 8px;
+      bottom: 8px;
+      font-size: 10px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: linear-gradient(to right, rgba(15, 23, 42, 0.95), transparent);
+      color: var(--text-muted);
+      backdrop-filter: blur(6px);
+    }
+
+    .gallery-footer {
+      font-size: 10px;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .gallery-footer a {
+      color: var(--text-muted);
+      text-decoration: none;
+      border-bottom: 1px dashed rgba(148, 163, 184, 0.7);
+    }
+
+    .gallery-footer a:hover {
+      color: #e5e7eb;
+      border-bottom-style: solid;
+    }
+
     footer {
-      background-color: #003366;
-      color: white;
-      text-align: center;
-      padding: 15px;
-      margin-top: 50px;
+      margin-top: 26px;
+      border-top: 1px solid rgba(31, 41, 55, 0.9);
+      padding-top: 10px;
+      font-size: 11px;
+      color: #6b7280;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 8px;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>CAP Garland, LLC</h1>
-    <p>Private Investment Fund</p>
-  </header>
+  <div class="page">
+    <header>
+      <div class="brand">
+        <div class="brand-logo">EZ</div>
+        <div>
+          <div class="brand-main">E.Z. Classic Car Restoration</div>
+          <div class="brand-sub">Classic Car Restoration Center Ltd</div>
+        </div>
+      </div>
 
-  <section>
-    <h2>About Us</h2>
-    <p>CAP Garland, LLC is a Washington-based private investment fund focused on delivering value through diversified investment strategies.</p>
+      <div class="domain-pill">
+        <span></span>
+        <span>www.ezclassicrestoration.com</span>
+      </div>
+    </header>
 
-    <h2>Contact</h2>
-    <div class="contact">
-      <p><strong>Address:</strong> 915 W 2nd Ave, Spokane, WA 99201</p>
-      <p><strong>Email:</strong> <a href="mailto:ryanberg@capgarland.shop">ryanberg@capgarland.shop</a></p>
-      <p><strong>Phone:</strong> (509) 822-3850</p>
-    </div>
-  </section>
+    <main>
+      <!-- LEFT -->
+      <section class="hero">
+        <div class="hero-badge">
+          <span>🚗 Classic car restoration</span>
+          <span>Nicosia, Cyprus</span>
+        </div>
 
-  <footer>
-    &copy; 2025 CAP Garland, LLC. All rights reserved.
-  </footer>
+        <h1 class="hero-title">
+          Restoring the <span>soul of classic cars</span><br />
+          with precision and passion.
+        </h1>
+
+        <p class="hero-subtitle">
+          E.Z. CLASSIC CAR RESTORATION CENTER LTD specialises in full and partial restorations,
+          mechanical work and detailing for classic and vintage vehicles, from first inspection
+          to final road test.
+        </p>
+
+        <div class="hero-tags">
+          <div class="hero-tag">Full body & paint restoration</div>
+          <div class="hero-tag">Engine & mechanical rebuilds</div>
+          <div class="hero-tag">Interior & trim refurbishment</div>
+        </div>
+
+        <div class="hero-actions">
+          <a class="btn-main" href="tel:+35795677979">📞 Call our workshop</a>
+          <a class="btn-ghost" href="mailto:contact@quilena.shop">✉️ Request a quote</a>
+        </div>
+
+        <div class="hero-meta">
+          <span><i></i><strong>Contact person:</strong> Lefteris Hadjiyiannis</span>
+          <span><i></i><strong>Tel:</strong> 35795677979</span>
+          <span><i></i><strong>Email:</strong> contact@quilena.shop</span>
+        </div>
+
+        <div class="info-card">
+          <div class="info-label">Address</div>
+          <div class="info-line">
+            <span>Μιχαλάκη Κουσουλίδη, 10</span>
+          </div>
+          <div class="info-line">
+            <span>1027, Λευκωσία, Κύπρος – Cyprus</span>
+          </div>
+
+          <div class="chip">
+            <span class="chip-dot"></span>
+            <span>Visits by appointment – please contact us to schedule a workshop tour.</span>
+          </div>
+
+          <div class="info-line" style="margin-top: 6px;">
+            <span class="info-label">Directions</span>
+          </div>
+          <div class="info-line">
+            <a
+              class="info-link"
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://www.google.com/maps/search/?api=1&query=Μιχαλάκη+Κουσουλίδη+10+1027+Λευκωσία+Κύπρος+Cyprus"
+            >
+              ➜ Open in Google Maps
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- RIGHT -->
+      <section class="gallery-card">
+        <div class="gallery-header">
+          <span>Workshop & restoration atmosphere</span>
+          <span>3 sample photos</span>
+        </div>
+
+        <div class="gallery-grid">
+          <!--
+            IMPORTANT:
+            Replace IMAGE_URL_1/2/3.jpg with public JPG links
+            (e.g. from Pexels/Unsplash of classic car workshops).
+          -->
+
+          <!-- main image -->
+          <div class="gallery-main">
+            <img
+              src="IMAGE_URL_1.jpg"
+              alt="Classic car body in a restoration workshop."
+              loading="lazy"
+            />
+            <div class="gallery-main-overlay">
+              <div class="gallery-main-text">
+                <span>Body & paint</span>
+                <strong>From bare metal to showroom finish</strong>
+                <div class="gallery-main-sub">
+                  Panel work, rust repair and high quality refinishing for long-lasting results.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- side images -->
+          <div class="gallery-side">
+            <figure class="gallery-item">
+              <img
+                src="IMAGE_URL_2.jpg"
+                alt="Mechanic working on a classic engine in the workshop."
+                loading="lazy"
+              />
+              <figcaption class="gallery-item-caption">
+                Engine and drivetrain rebuilds with attention to original specifications.
+              </figcaption>
+            </figure>
+
+            <figure class="gallery-item">
+              <img
+                src="IMAGE_URL_3.jpg"
+                alt="Interior of a restored classic car."
+                loading="lazy"
+              />
+              <figcaption class="gallery-item-caption">
+                Interior restoration: upholstery, dashboards, details and finishing touches.
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="gallery-footer">
+          <span>Non-contractual sample photos for illustration only.</span>
+          <span>
+            <a href="https://www.google.com/search?q=classic+car+restoration" target="_blank" rel="noopener noreferrer">
+              Learn more about classic car restoration
+            </a>
+          </span>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span>© <span id="year"></span> E.Z. CLASSIC CAR RESTORATION CENTER LTD – All rights reserved.</span>
+      <span>Static showcase site – content, services and opening hours to be customised.</span>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
